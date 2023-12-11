@@ -1,0 +1,101 @@
+Prompt (P): Can you write a program in python to solve this problem?
+
+Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
+
+You've been doing this long enough to know that to restore snow operations, you need to check all fifty stars by December 25th.
+
+Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
+
+You try to ask why they can't just use a weather machine ("not powerful enough") and where they're even sending you ("the sky") and why your map looks mostly blank ("you sure ask a lot of questions") and hang on did you just say the sky ("of course, where do you think snow comes from") when you realize that the Elves are already loading you into a trebuchet ("please hold still, we need to strap you in").
+
+As they're making the final adjustments, they discover that their calibration document (your puzzle input) has been amended by a very young Elf who was apparently just excited to show off her art skills. Consequently, the Elves are having trouble reading the values on the document.
+
+The newly-improved calibration document consists of lines of text; each line originally contained a specific calibration value that the Elves now need to recover. On each line, the calibration value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number.
+
+For example:
+
+1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet
+In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
+
+Answer (A): Sure, I can help you with that. Here’s a Python program that solves the problem:
+
+Python
+AI-generated code. Review and use carefully. More info on FAQ.
+
+def sum_of_calibration_values(calibration_document: str) -> int:
+    return sum(int(line[0] + line[-1]) for line in calibration_document.split())
+
+calibration_document = \"\"\"1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet\"\"\"
+
+print(sum_of_calibration_values(calibration_document))
+
+This program defines a function sum_of_calibration_values that takes a string calibration_document as input and returns the sum of all calibration values in the document. The function splits the input string into lines using the split() method and then uses a list comprehension to extract the first and last digits of each line and combine them into a two-digit number using string concatenation. Finally, the sum() function is used to add up all the two-digit numbers.
+
+To solve the example problem you provided, you can simply replace the calibration_document variable with the text of your document. The program will output the sum of all calibration values in the document.
+
+Good luck with your puzzle solving!
+
+P: Can you have it read the calibration_document from a text file?
+
+A: Certainly! Here’s the updated program that reads the calibration document from a text file:
+
+Python
+AI-generated code. Review and use carefully. More info on FAQ.
+
+def sum_of_calibration_values(calibration_document: str) -> int:
+    return sum(int(line[0] + line[-1]) for line in calibration_document.split())
+
+with open('calibration_document.txt', 'r') as f:
+    calibration_document = f.read()
+
+print(sum_of_calibration_values(calibration_document))
+
+This program reads the contents of the file calibration_document.txt using the open() function and the with statement. The with statement ensures that the file is properly closed after it has been read. The contents of the file are then passed to the sum_of_calibration_values() function, which calculates the sum of all calibration values in the document.
+
+To use this program, simply create a text file named calibration_document.txt in the same directory as the Python script and copy the contents of your calibration document into it. Then run the Python script and it will output the sum of all calibration values in the document.
+
+Good luck with your puzzle solving!
+
+Q: Your calculation isn't quite right. It looks like some of the digits are actually spelled out with letters: one, two, three, four, five, six, seven, eight, and nine also count as valid "digits".
+
+Equipped with this new information, you now need to find the real first and last digit on each line. For example:
+
+two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.
+
+A: I apologize for the mistake in my previous response. Thank you for bringing it to my attention. Here’s the updated Python program that takes into account the fact that some of the digits are spelled out with letters:
+
+Python
+AI-generated code. Review and use carefully. More info on FAQ.
+
+def sum_of_calibration_values(calibration_document: str) -> int:
+    def get_digit(s: str) -> str:
+        if s.isdigit():
+            return s
+        else:
+            return str(ord(s) - ord('a') + 1)
+
+    return sum(int(get_digit(line[0]) + get_digit(line[-1])) for line in calibration_document.split())
+
+with open('calibration_document.txt', 'r') as f:
+    calibration_document = f.read()
+
+print(sum_of_calibration_values(calibration_document))
+
+This program defines a new function get_digit that takes a string s as input and returns the corresponding digit as a string. If s is already a digit, the function simply returns s. Otherwise, it computes the index of the letter in the alphabet (starting from 1) and adds 1 to get the corresponding digit. The sum_of_calibration_values function now uses get_digit to extract the first and last digits of each line, regardless of whether they are digits or letters.
+
+To use this program, create a text file named calibration_document.txt in the same directory as the Python script and copy the contents of your calibration document into it. Then run the Python script and it will output the sum of all calibration values in the document.
+
+Good luck with your puzzle solving!

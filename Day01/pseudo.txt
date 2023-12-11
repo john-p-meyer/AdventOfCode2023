@@ -1,0 +1,41 @@
+Part 1:
+
+Load File
+
+For each line in the file: 
+  Create a 2 digit number based off the the first numerical digit and the last numerical digit. 
+    If the line only has 1 digit, use it twice.
+  Add each lines result to the total
+
+Print out the total.
+
+Part 2:
+
+Load File. Each line in the file contains a combination of letters and numbers.
+
+For each line in the file:
+  Replace the following strings with the associated number in this order.
+     oneight, 18
+     threeight, 38
+     fiveight, 58
+     nineight, 98
+     sevenine, 79
+     one, 1 
+     two, 2 
+     three, 3
+     four, 4
+     five, 5
+     six, 6
+     seven, 7
+     eight, 8
+     nine, 9
+
+  Create a two digit number based off the the first numerical digit and the last numerical digit found in the string of numbers and letters. 
+    If the line only has one digit, use it twice.
+    For example:
+       If the input is 1abc2 then the first digit would be 1 and the last digit would be 2 so the result would be 12.
+       If the input is pqr3stu8vwx the first digit would be 3 and the last digit would be 8 so the result would be 38.
+       If the input is a1b2c3d4e5f the first digit would be 1 and, even though 2, 3, and 4 are present, the last digit is 5 so the result would be 15.
+       If the input is treb7uchet the first digit would be 1, but since it's the only digit, it would also be the last digit so the result would be 77. 
+    
+  Add each lines result to the total
